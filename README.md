@@ -140,6 +140,7 @@ Welcome to the backend API for the AI-powered database query application. This A
    DB_NAME=your_db_name
    DB_USER=your_db_user
    DB_PASSWORD=your_db_password
+   BACKEND_PORT=your_port_number
    ```
 
 5. **Run the Application**
