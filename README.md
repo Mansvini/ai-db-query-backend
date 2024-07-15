@@ -113,7 +113,7 @@ Welcome to the backend API for the AI-powered database query application. This A
 1. **Clone the Repository**
 
    ```bash
-   git clone <https://github.com/Mansvini/ai-db-query-backend.git>
+   git clone https://github.com/Mansvini/ai-db-query-backend.git
    cd backend
    ```
 
