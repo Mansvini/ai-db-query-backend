@@ -36,17 +36,17 @@ def parse_user_query(user_query):
         You are a helpful assistant that converts natural language queries into SQL based on the following database schema and sample data:
 
         Tables and Sample Data:
-        - events:
-          - event_id: 1, event_logo_url: 'http://expo.overseaseducation.sg/v.fastcdn.co/u/0e18fcd3/57786581-0-Untitled-.png', event_name: 'World University Expo @ SUNTEC', event_start_date: '2023-05-20', event_end_date: '2023-05-22', event_venue: 'SUNTEC Convention Centre', event_country: 'Maryland, USA', event_description: 'Join our World University Expo this Saturday, 6 July 2024 12-6.30pm at SUNTEC whereby you can meet staff members of 50+ Renown Unis & Pathways from UK, Australia, Switzerland, USA & NZ etc. (Many travel from overseas for this event). Fantastic One-Stop Event for you to get all your queries answered and get an in-depth understanding of many Renowned Unis & Pathways.', event_url: 'http://expo.overseaseducation.sg/', event_industry: 'Education'
-          - event_id: 2, event_logo_url: 'https://apac.commoditytradingweek.com/wp-content/uploads/2024/02/cropped-ctw-apac-main-2.png', event_name: 'Commodity Trading Week APAC', event_start_date: '2023-06-15', event_end_date: '2023-06-17', event_venue: 'Marina Bay Sands', event_country: 'Singapore', event_description: 'Commodity Trading Week APAC is the premier event in the Asia Pacific region for the commodity industry. It offers a platform for professionals across all sectors of commodity trading to network and gain insights.', event_url: 'https://apac.commoditytradingweek.com/', event_industry: 'Oil & Gas, Energy, Finance'
+        - events (event_id, event_logo_url, event_name, event_start_date, event_end_date, event_venue, event_country, event_description, event_url, event_industry)
+          Example:
+          - event_id: 1, event_name: 'World University Expo', event_start_date: '2023-05-20', event_end_date: '2023-05-22', event_venue: 'SUNTEC Convention Centre', event_country: 'USA', event_description: 'Join our World University Expo', event_url: 'http://expo.overseaseducation.sg/', event_industry: 'Education'
 
-        - companies:
-          - company_id: 1, company_name: 'Kerry Consulting', company_phone: '(656) 333-8530', company_address: '6 Temasek Blvd 31, Singapore 038986, SG', company_industry: 'Staffing and Recruiting', company_overview: '"Kerry Consulting Information Headquartered in Singapore since 2003, Kerry Consulting is Singapore's leading Search & Selection firm. Our consulting team is the most experienced, and amongst the largest, in the ASEAN region. We provide services to many of the world's leading companies and financial institutions. We are committed to creating positive long term outcomes for both our clients and our candidates. Our focus is on "Returning the Human to Resourcing". We believe that every organisation's success is largely determined by the quality of its people. Our ability to consistently provide high quality services to our clients is based on: • Trust • Energy • Market Knowledge • Continuity of relationship • Business understanding Our firm is staffed by professionals with extensive experience of and commitment to the region. Our structure is one which promotes teamwork, individual growth and organizational stability. Our aim is to become a trusted long term business partner rather than to be an intermittent service provider. View Top Employees from Kerry Consulting"', homepage_url: 'https://www.kerryconsulting.com/', linkedin_company_url: 'https://mz.linkedin.com/company/kerry-consulting/about', homepage_base_url: 'kerryconsulting.com', company_logo_url_on_event_page: 'https://apac.commoditytradingweek.com/wp-content/uploads/2022/03/KC_WEB_logo.png', company_logo_url: 'https://d1hbpr09pwz0sk.cloudfront.net/logo_url/kerry-consulting-b606c58b', company_logo_match_flag: 'yes', company_logo_text: 'Kerry Consulting', relation_to_event: 'sponsor', company_revenue: 12000000, min_employees: 114, max_employees: 114, company_founding_year: 2003, event_url: 'https://apac.commoditytradingweek.com/'
-          - company_id: 2, company_name: 'HR Maritime', company_phone: '+41 22 732 57 00', company_address: '1-3 Rue De Chantepoulet, Geneva, Geneva 1201, CH', company_industry: 'Maritime Transportation', company_overview: 'HR Maritime is a Geneva based company providing services to the International Trading and Shipping industry. With a client base both within Switzerland and around the globe we offer guidance and implement tailored solutions to the range of problems besetting a company involved in the trading and shipping of commodities. We work with Commodity Traders, Importers and Exporters, Ship Owners and Managers, P&I Clubs, Insurance Underwriters, Trade Financiers, Lawyers and a number of associated service providers.', homepage_url: 'http://www.hr-maritime.com', linkedin_company_url: 'https://ch.linkedin.com/company/hr-maritime/about', homepage_base_url: 'hr-maritime.com', company_logo_url_on_event_page: 'https://apac.commoditytradingweek.com/wp-content/uploads/2022/03/HR_logo-2.png', company_logo_url: 'https://d1hbpr09pwz0sk.cloudfront.net/logo_url/hr-maritime-c13714f3', company_logo_match_flag: 'yes', company_logo_text: 'HR MARITIME', relation_to_event: 'partner', company_revenue: 2000000, min_employees: 2, max_employees: 10, company_founding_year: 2008, event_url: 'https://apac.commoditytradingweek.com/'
+        - companies (company_id, company_name, company_phone, company_address, company_industry, company_overview, homepage_url, linkedin_company_url, homepage_base_url, company_logo_url_on_event_page, company_logo_url, company_logo_match_flag, company_logo_text, relation_to_event, company_revenue, min_employees, max_employees, company_founding_year, event_url)
+          Example:
+          - company_id: 1, company_name: 'Kerry Consulting', company_phone: '(656) 333-8530', company_address: '6 Temasek Blvd 31, Singapore 038986, SG', company_industry: 'Staffing and Recruiting', homepage_url: 'https://www.kerryconsulting.com/', homepage_base_url: 'kerryconsulting.com', event_url: 'https://apac.commoditytradingweek.com/'
 
-        - people:
-          - person_id: 1, first_name: 'Rohail', middle_name: 'M', last_name: 'Khan', job_title: 'Sales Account Manager', person_city: 'Peshawar', person_state: 'Khyber Pakhtunkhwa', person_country: 'Pakistan', email_pattern: '[first_initial][last]', email: 'rkhan@isaca.org', homepage_base_url: 'isaca.org', duration_in_current_job: '11 years 6 months in role 11 years 6 months in company', duration_in_current_company: '11 years 6 months'
-          - person_id: 2, first_name: 'Oscar', middle_name: 'Ruben', last_name: 'Sordo', job_title: 'Material Handler', person_city: 'Monroe', person_state: 'WA', person_country: 'US', email_pattern: '[first].[last]', email: 'oscar.sordo@collinsaerospace.com', homepage_base_url: 'collinsaerospace.com', duration_in_current_job: '2 years in role 2 years in company', duration_in_current_company: '2 years'
+        - people (person_id, first_name, middle_name, last_name, job_title, person_city, person_state, person_country, email_pattern, email, homepage_base_url, duration_in_current_job, duration_in_current_company)
+          Example:
+          - person_id: 1, first_name: 'Rohail', last_name: 'Khan', job_title: 'Sales Account Manager', email: 'rkhan@isaca.org', homepage_base_url: 'isaca.org'
 
         Relationships:
         - companies.event_url references events.event_url
@@ -54,7 +54,22 @@ def parse_user_query(user_query):
 
         Note: Use PostgreSQL syntax and give only the resultant query as response.
         - Use LOWER and LIKE to search text fields.
-        - If the query is related to company_industry, then search company_industry from company_overview and company_industry.
+        - Events can be referred to as conferences, summits, fairs, expos, shows, seminars or similar names.
+
+        Examples of natural language queries and corresponding SQL queries:
+        1. Natural Language: Find companies attending technology conferences over the next 6 months.
+           SQL: SELECT * FROM companies JOIN events ON companies.event_url = events.event_url WHERE LOWER(events.event_industry) LIKE '%technology%' AND events.event_start_date BETWEEN CURRENT_DATE AND CURRENT_DATE + INTERVAL '6 months';
+
+        2. Natural Language: List marketing managers working for companies attending AI and machine learning events.
+           SQL: SELECT people.* FROM people JOIN companies ON people.homepage_base_url = companies.homepage_base_url JOIN events ON companies.event_url = events.event_url WHERE LOWER(events.event_industry) LIKE '%ai%' OR LOWER(events.event_industry) LIKE '%machine learning%' AND LOWER(people.job_title) LIKE '%marketing manager%';
+
+        3. Natural Language: Which events are being attended by companies with more than 500 employees?
+           SQL: SELECT events.* FROM events JOIN companies ON events.event_url = companies.event_url WHERE companies.max_employees > 500;
+
+        4. Natural Language: Get the email addresses of CTOs working in tech companies.
+           SQL: SELECT people.email FROM people JOIN companies ON people.homepage_base_url = companies.homepage_base_url WHERE LOWER(companies.company_industry) LIKE '%tech%' AND LOWER(people.job_title) LIKE '%cto%';
+
+        Given this information, convert the following natural language query to an SQL query:
         """
 
         response = client.chat.completions.create(
