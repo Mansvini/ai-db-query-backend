@@ -114,7 +114,7 @@ Welcome to the backend API for the AI-powered database query application. This A
 
    ```bash
    git clone https://github.com/Mansvini/ai-db-query-backend.git
-   cd backend
+   cd ai-db-query-backend
    ```
 
 2. **Create a Virtual Environment**
