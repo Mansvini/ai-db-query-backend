@@ -1,0 +1,15 @@
+Find companies attending certain types of events:
+- Find companies attending technology conferences over the next 6 months.
+- Show companies attending technology expos in Singapore over the next 6 months.
+
+Find people working for companies attending specific events:
+- Find salespeople for companies that are attending events in Singapore over the next 9 months.
+
+Find events attended by certain types of companies:
+- Which events are being attended by companies with revenue above $50 million?
+
+Advanced queries combining multiple filters:
+- Show me all events in the finance sector attended by companies with less than 200 employees.
+
+General exploratory queries:
+- What events are happening in the next quarter?
